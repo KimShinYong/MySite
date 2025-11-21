@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -12,21 +12,26 @@
       src="https://kit.fontawesome.com/133260cff9.js"
       crossorigin="anonymous"
     ></script>
+    <script src="./app.js" defer></script>
   </head>
   <body>
     <!-- header -->
     <header class="header">
       <div class="header__logo">
         <img class="header__logo__img" src="./images/trust.ico" alt="logo" />
-        <h1 class="header__logo__title"><a href="#">Creadit</a></h1>
+        <h1 class="header__logo__title"><a href="#home">Creadit</a></h1>
       </div>
       <nav class="header__nav">
         <ul class="header__menu">
           <li>
             <a href="#home" class="header__menu__item active">홈(Home)</a>
           </li>
-          <li><a href="#about" class="header__menu__item">Creadit</a></li>
-          <li><a href="#skills" class="header__menu__item">기술(skills)</a></li>
+          <li>
+            <a href="#about" class="header__menu__item">Creadit</a>
+          </li>
+          <li>
+            <a href="#skills" class="header__menu__item">기술(skills)</a>
+          </li>
           <li>
             <a href="#work" class="header__menu__item">포트폴리오(work)</a>
           </li>
@@ -38,6 +43,24 @@
           </li>
         </ul>
       </nav>
+      <!-- 메뉴 버튼 -->
+      <div class="header__buttons">
+        <button
+          id="menu-toggle"
+          class="header__menu-toggle"
+          aria-label="메뉴 열기"
+        >
+          <i class="fa-solid fa-bars"></i>
+        </button>
+
+        <button
+          id="theme-toggle"
+          class="header__theme-toggle"
+          aria-label="테마 모드"
+        >
+          🌙
+        </button>
+      </div>
     </header>
 
     <!-- Main -->
@@ -49,7 +72,9 @@
           안녕하세요!!<br /><strong class="home__title--strong">ShinYong</strong
           >입니다.
         </h2>
-        <p class="home__description">우리집에서 가장 뛰어난 AI 개발자입니다.</p>
+        <p class="home__description" id="greeting">
+          우리집에서 가장 뛰어난 AI 개발자입니다.
+        </p>
         <a class="home__contact" href="#contact">연락처</a>
       </section>
 
@@ -98,6 +123,7 @@
           </li>
         </ul>
       </section>
+
       <!-- skills -->
       <section id="skills" class="section">
         <div class="max-container">
@@ -180,6 +206,7 @@
           </div>
         </div>
       </section>
+
       <!-- work -->
       <section id="work" class="section">
         <div class="max-container">
@@ -187,28 +214,33 @@
           <p class="description">Projects</p>
           <ul class="categories">
             <li>
-              <button class="category category--selected">
+              <button
+                class="category category--selected"
+                data-filter="all"
+                type="button"
+              >
                 ALL<span class="category__count">10</span>
               </button>
             </li>
             <li>
-              <button class="category">
+              <button class="category" data-filter="front-end" type="button">
                 Front-end<span class="category__count">3</span>
               </button>
             </li>
             <li>
-              <button class="category">
+              <button class="category" data-filter="mobile" type="button">
                 Mobile<span class="category__count">5</span>
               </button>
             </li>
             <li>
-              <button class="category">
+              <button class="category" data-filter="back-end" type="button">
                 Back-end<span class="category__count">2</span>
               </button>
             </li>
           </ul>
           <ul class="projects">
-            <li class="project">
+            <!-- front-end (3개) -->
+            <li class="project" data-type="front-end">
               <a href="#" target="_blank">
                 <img
                   src="./images/jjangu.png"
@@ -221,7 +253,7 @@
                 </div>
               </a>
             </li>
-            <li class="project">
+            <li class="project" data-type="front-end">
               <a href="#" target="_blank">
                 <img
                   src="./images/jjangu.png"
@@ -234,7 +266,7 @@
                 </div>
               </a>
             </li>
-            <li class="project">
+            <li class="project" data-type="front-end">
               <a href="#" target="_blank">
                 <img
                   src="./images/jjangu.png"
@@ -247,7 +279,9 @@
                 </div>
               </a>
             </li>
-            <li class="project">
+
+            <!-- mobile (5개) -->
+            <li class="project" data-type="mobile">
               <a href="#" target="_blank">
                 <img
                   src="./images/jjangu.png"
@@ -256,11 +290,11 @@
                 />
                 <div class="project__metadata">
                   <h3 class="project__title">Project #4</h3>
-                  <p>클론코딩 사이트</p>
+                  <p>모바일 앱 프로젝트</p>
                 </div>
               </a>
             </li>
-            <li class="project">
+            <li class="project" data-type="mobile">
               <a href="#" target="_blank">
                 <img
                   src="./images/jjangu.png"
@@ -269,11 +303,11 @@
                 />
                 <div class="project__metadata">
                   <h3 class="project__title">Project #5</h3>
-                  <p>클론코딩 사이트</p>
+                  <p>모바일 앱 프로젝트</p>
                 </div>
               </a>
             </li>
-            <li class="project">
+            <li class="project" data-type="mobile">
               <a href="#" target="_blank">
                 <img
                   src="./images/jjangu.png"
@@ -282,11 +316,11 @@
                 />
                 <div class="project__metadata">
                   <h3 class="project__title">Project #6</h3>
-                  <p>클론코딩 사이트</p>
+                  <p>모바일 앱 프로젝트</p>
                 </div>
               </a>
             </li>
-            <li class="project">
+            <li class="project" data-type="mobile">
               <a href="#" target="_blank">
                 <img
                   src="./images/jjangu.png"
@@ -295,11 +329,11 @@
                 />
                 <div class="project__metadata">
                   <h3 class="project__title">Project #7</h3>
-                  <p>클론코딩 사이트</p>
+                  <p>모바일 앱 프로젝트</p>
                 </div>
               </a>
             </li>
-            <li class="project">
+            <li class="project" data-type="mobile">
               <a href="#" target="_blank">
                 <img
                   src="./images/jjangu.png"
@@ -308,11 +342,13 @@
                 />
                 <div class="project__metadata">
                   <h3 class="project__title">Project #8</h3>
-                  <p>클론코딩 사이트</p>
+                  <p>모바일 앱 프로젝트</p>
                 </div>
               </a>
             </li>
-            <li class="project">
+
+            <!-- back-end (2개) -->
+            <li class="project" data-type="back-end">
               <a href="#" target="_blank">
                 <img
                   src="./images/jjangu.png"
@@ -321,11 +357,11 @@
                 />
                 <div class="project__metadata">
                   <h3 class="project__title">Project #9</h3>
-                  <p>클론코딩 사이트</p>
+                  <p>백엔드 서비스</p>
                 </div>
               </a>
             </li>
-            <li class="project">
+            <li class="project" data-type="back-end">
               <a href="#" target="_blank">
                 <img
                   src="./images/jjangu.png"
@@ -334,13 +370,14 @@
                 />
                 <div class="project__metadata">
                   <h3 class="project__title">Project #10</h3>
-                  <p>클론코딩 사이트</p>
+                  <p>백엔드 서비스</p>
                 </div>
               </a>
             </li>
           </ul>
         </div>
       </section>
+
       <!-- license -->
       <section id="license" class="section max-container">
         <h2 class="title">자격증</h2>
@@ -382,6 +419,7 @@
           </li>
         </ul>
       </section>
+
       <!-- aside -->
       <aside>
         <a class="arrow-up" href="#home" title="위로"
@@ -389,6 +427,7 @@
         ></a>
       </aside>
     </main>
+
     <!-- contact -->
     <footer id="contact" class="section">
       <div class="max-container">
@@ -418,5 +457,3 @@
     </footer>
   </body>
 </html>
-
-<!-- html을 작성한 후에 class를 정한다. 그 다음 css 작성 -->
